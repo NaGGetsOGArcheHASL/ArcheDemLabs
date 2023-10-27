@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ name }}. Лабораторная работа {{ numberlab }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
     <header>
-        WEB-программирование, часть 2. Лабораторная работа {{ numberlab }}
+        WEB-программирование, часть 2. {% if numberlab %}Лабораторная работа 2{% endif %}
         <p><a href="/menu">Меню</a></p>
     </header>
     
@@ -19,7 +20,23 @@
     </main>
 
     <footer>
-        &copy; {{ name }}, {{ group }}, {{ course }} курс, 2023
+        &copy;
+        {% if name %}
+            {{ name }},
+        {% else %}
+            Анонимус
+        {% endif %}
+        {% if group %}
+            {{ group }},
+        {% else %}
+            Неизвестная группа
+        {% endif %}
+        {% if course %}
+            {{ course }},
+        {% else %}
+            Неизвестный курс
+        {% endif %}
+        2023
     </footer>
 </body>
 </html>
