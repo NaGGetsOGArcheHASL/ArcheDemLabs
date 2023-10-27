@@ -22,6 +22,11 @@
             <li>{{ f.name }}: {{ f.price }} &#8381;</li>
             {% endfor %}
         </ul>
+        <ul>
+            {% for B in books %}
+            <li>Автор - {{ B.autor }}: {{ B.name }}, Жанры: {{ B.Genre }}. {{ B.page }} страниц. Цена {{ B.price }} &#8381;</li>
+            {% endfor %}
+        </ul>
     </main>
 
     <footer>
