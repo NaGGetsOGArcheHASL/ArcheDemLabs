@@ -22,6 +22,7 @@ def menu():
             </header>
             <h2><a href="/lab1">Лабораторная 1</a></h2>
             <h2><a href="/lab2/">Лабораторная 2</a></h2>
+            <h2><a href="/defence/">Защита</a></h2>
             <footer>
                   &copy; Дементьев Артур, ФБИ-12, 3 курс 2023
             </footer>
@@ -100,7 +101,7 @@ def oak():
 def example():
    name = 'Артур Дементьев'
    numberlab = 2
-   group = ФБИ-12
+   group = 'ФБИ-12'
    course = 3
    fruits = [
     {'name': 'Яблоки', 'price': 100},
@@ -110,7 +111,7 @@ def example():
     {'name': 'Манго', 'price': 210}
     ]
 
-    books = [
+   books = [
       {'name': '1984', 'autor': 'Джордж Оруэлл','page': 328, 'Genre': 'Научная фантастика', 'price': 613},
 
       {'name': 'Преступление и наказание', 'autor': 'Федор Достоевский','page': 672, 'Genre': 'Классика', 'price': 505},
@@ -137,4 +138,30 @@ def example():
 
 @app.route('/lab2/')
 def lab2():
-    return render_template(lab2.html)
+   return render_template('lab2.html')
+
+@app.route('/defence/')
+def defence():
+    return render_template('defence.html')
+
+@app.route('/defence/for1')
+def for1():
+    k = 999
+    n = 3
+    result =  str(k) * n
+    return (result)
+
+
+@app.route('/defence/if16')
+def if16():
+    a = 3.3
+    b = 3.7
+    c = 4.4
+    if (a > b) & (b > c) or (a < b) & (b < c):
+        a *= 2
+        b *= 2
+        c *= 2
+        result = str(a) + ', ' + str(b) + ', ' + str(c)
+    else:
+        result = str(-a) + ', ' + str(-b) + ', ' + str(-c)
+    return (result)
