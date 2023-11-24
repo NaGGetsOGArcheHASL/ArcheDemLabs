@@ -24,3 +24,8 @@ def login():
 
     error = 'Неверные логин и/или пароль'
     return render_template('login.html', error=error, username=username, password=password, errors=errors)
+
+
+@lab4.route('/lab4/fridge', methods = ['GET', 'POST'])
+def fridge():
+    return render_template('fridge.html')
