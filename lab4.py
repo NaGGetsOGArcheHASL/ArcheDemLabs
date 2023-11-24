@@ -95,3 +95,27 @@ def process_order():
         message = f"Заказ успешно сформирован. Вы заказали зерно: {grain_type}. Вес: {weight} т. Сумма к оплате: {total_price} руб."
 
     return f"<h3>{message}</h3><br><a href='/lab4/zerno'>Вернуться к заказу</a>"
+
+
+@lab4.route('/lab4/cookies', methods = ['GET', 'POST'])
+def cookies():
+    if request.method == 'GET':
+        return render_template('cookies.html' )
+    
+    color = request.form.get('color')
+    bgcolor = request.form.get('bgcolor')
+    fontsize = request.form.get('fontsize')
+
+    if color == bgcolor:
+        return "Цвет текста не должен совпадать с цветом фона."
+    
+    if int(fontsize) < 5 or int(fontsize) > 30:
+        return "Размер текста должен быть от 5px до 30px."
+    
+    headers = {
+        'Set-Cookies': 'color=' + color + '; path=/',
+        'Set-Cookies': 'bgcolor=' + bgcolor + '; path=/',
+        'Set-Cookies': 'fontsize=' + fontsize + '; path=/',
+        'Location': '/lab4/cookies'
+    }
+    return '', 303, headers
