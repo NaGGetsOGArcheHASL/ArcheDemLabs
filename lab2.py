@@ -1,8 +1,8 @@
 from flask import Blueprint, redirect, url_for
-lab1 = Blueprint('lab2', __name__)
+lab2 = Blueprint('lab2', __name__)
 
 
-@app.route('/lab2/example') 
+@lab2.route('/lab2/example') 
 def example():
    name = 'Артур Дементьев'
    numberlab = 2
@@ -42,17 +42,17 @@ def example():
    course=course, fruits=fruits, books=books)
 
 
-@app.route('/lab2/')
+@lab2.route('/lab2/')
 def lab():
    return render_template('lab2.html')
 
 
-@app.route('/defence/')
+@lab2.route('/defence/')
 def defence():
     return render_template('defence.html')
 
 
-@app.route('/defence/for1')
+@lab2.route('/defence/for1')
 def for1():
     k = 999
     n = 3
@@ -60,7 +60,7 @@ def for1():
     return (result)
 
 
-@app.route('/defence/if16')
+@lab2.route('/defence/if16')
 def if16():
     a = 3.3
     b = 3.7
@@ -73,4 +73,3 @@ def if16():
     else:
         result = str(-a) + ', ' + str(-b) + ', ' + str(-c)
     return (result)
-    

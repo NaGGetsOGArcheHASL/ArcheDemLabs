@@ -23,7 +23,7 @@ def form1():
     return render_template('form1.html', user=user, age=age, sex=sex, errors=errors)
  
 
- @lab3.route('/lab3/order')
+@lab3.route('/lab3/order')
 def order():
     return render_template('order.html')
 
