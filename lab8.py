@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, abort
+from flask import Blueprint, render_template, request, abort, jsonify
 
 lab8 = Blueprint('lab8', __name__)
 
@@ -22,7 +22,7 @@ def get_courses():
 def get_course(course_num):
     if course_num < 0 or course_num >= len(courses):
         return "Error 404: Course not found", 404
-    return courses[course_num]
+    return jsonify[course_num]
 
 
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=['DELETE'])
@@ -47,4 +47,3 @@ def add_course():
     course = request.get_json()
     courses.append(course)
     return {"num": len(courses)-1}
-    
