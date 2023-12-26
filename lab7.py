@@ -61,3 +61,15 @@ def pay(params):
 
     price = calcullate_price(params)
     return {"result": f'С карты {card_num} списано {price} руб.', "error": None}
+
+def cancel_pay(params):
+    card_num = params['card_num']
+    if len(card_num) != 16 or not card_num.isdigit():
+        return {"result": None, "error": "Неверный номер карты"}
+
+    cvv = params['cvv']
+    if len(cvv) != 3 or not cvv.isdigit():
+        return {"result": None, "error": "Неверный номер CVV"}
+
+    price = calcullate_price(params)
+    return {"result": f'На карту {card_num} возвращено {price} руб.', "error": None}
